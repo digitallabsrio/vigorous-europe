@@ -1,0 +1,7 @@
+from manage import read_json_configuration
+
+...
+
+@pytest.fixture(scope="session")
+def app_configuration():
+    return read_json_configuration("testing")

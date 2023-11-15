@@ -1,0 +1,18 @@
+def test_response_success_has_type_and_value():
+    response = ResponseSuccess(SUCCESS_VALUE)
+
+    assert response.type == ResponseTypes.SUCCESS
+    assert response.value == SUCCESS_VALUE
+
+
+def test_response_failure_has_type_and_message():
+    response = ResponseFailure(
+        GENERIC_RESPONSE_TYPE, GENERIC_RESPONSE_MESSAGE
+    )
+
+    assert response.type == GENERIC_RESPONSE_TYPE
+    assert response.message == GENERIC_RESPONSE_MESSAGE
+    assert response.value == {
+        "type": GENERIC_RESPONSE_TYPE,
+        "message": GENERIC_RESPONSE_MESSAGE,
+    }

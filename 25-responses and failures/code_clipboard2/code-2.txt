@@ -1,0 +1,8 @@
+def test_response_failure_initialisation_with_exception():
+    response = ResponseFailure(
+        GENERIC_RESPONSE_TYPE, Exception("Just an error message")
+    )
+
+    assert bool(response) is False
+    assert response.type == GENERIC_RESPONSE_TYPE
+    assert response.message == "Exception: Just an error message"
